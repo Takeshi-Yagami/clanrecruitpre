@@ -1,0 +1,791 @@
+html{
+    scroll-behavior: smooth !important;
+
+}
+body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+      font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+}
+
+@keyframes showTextFromBottom{ /*共通登場ANM*/
+  0%{
+    transform: translateY( 100% );
+  }
+  100%{
+    transform: translateY( 0px );
+  }
+}
+.AddOpenAnimation.displayed span{
+  animation: showText 1s backwards;
+  display: inline-block;
+}
+.AddOpenAnimation.displayed > span{
+  overflow: hidden;
+}
+.AddOpenAnimation.displayed > span > span{
+  animation: showTextFromBottom 0.5s backwards;
+}
+
+.RECheader{
+    height: 100px;
+    background-color: #ffffff;
+}
+
+/* hero */
+.REChero{
+    position: relative;;
+    height: calc(100vh - 100px);
+    background-image: url("static/bgblackpre.png");
+    object-fit: cover;
+    background-size: cover;
+    
+}
+.RECheroArea{
+    position: absolute;
+    animation: slideIn 1.6s forwards; /* slideInアニメーションを適用 */
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateX(-100%); /* 初期位置を左画面外に設定 */
+    background-color: #f20000;
+    top: 10%;
+    height: 80%;
+    width: 80%;
+}
+.RECheroAreaContent{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+/* 左側 */
+.RECheroAreaLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+.RECheroAreaLeftCC{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 5%;
+}
+.RECheroAreaLeftCCJP{
+    font-weight: 700;
+    font-size: 25px;
+    color: #ffffff;
+    width: 80%;
+    margin: 0 auto;
+    opacity: 0;
+    animation: display 1s forwards;
+    animation-delay: 1s; 
+}
+.animated-text {
+    white-space: nowrap; /* テキストが途中で改行されないようにする */
+    animation: slideIn 1.7s forwards; /* slideInアニメーションを適用 */
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateX(-100%); /* 初期位置を左画面外に設定 */
+    opacity: 0; /* 初期状態で透明 */
+    font-weight: 700;
+    font-size: 50px;
+    color: #ffffff;
+    line-height: 1em;
+}
+/* 複数の文字要素がある場合の例 */
+.animated-text.delay-1 { animation-delay: 0.3s; }
+.animated-text.delay-2 { animation-delay: 0.5s; }
+.animated-text.delay-3 { animation-delay: 0.6s; }
+.animated-text.delay-4 { animation-delay: 0.7s; }
+
+/* アニメーションの定義 */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%); /* 左画面外 */
+        opacity: 0;
+    }
+    10% { /* 少し早めに表示開始 */
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0); /* 元の位置 */
+        opacity: 1;
+    }
+}
+@keyframes display {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 右側 */
+.RECheroAreaRight{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    animation: display 0.5s ease-out forwards;
+    animation-delay: 1s;
+}
+.RECheroAreaLogoBox{
+    height: 20%;
+    display: flex;
+    justify-content: end;
+    padding-right: 5%;
+}
+.RECheroAreaLogo{
+    height: 60%;
+    margin: auto 0;
+}
+.RECheroAreaNav{ /*heroのリンク用を格納*/
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.RECheroAreaNavItems{ /*heroのリンク*/
+    width: max-content;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.4em;
+    margin-left: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    position: relative;
+    transition: .3s;
+}
+.RECheroAreaNavItems::before{
+    content: '';
+    width: 8px;
+    height: 8px;
+    margin-top: -5px;
+    border-top: solid 1px #ffffff;
+    border-right: solid 1px #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 55%;
+    left: -20px;
+}
+.RECheroAreaNavItems::after { /*heroのリンク用下線*/
+    content: '';
+    display: block;
+    height: 1px;
+    width: 0%;
+    background: #ffffff;
+    position: absolute;
+    bottom: 5px;
+    left: 0%;
+    transition: .3s;
+}
+.RECheroAreaNavItems:hover {
+    color: #ffffff;
+    margin-left: 30px;
+}
+.RECheroAreaNavItems:hover::before{
+    border-top: solid 1px #ffffff;
+    border-right: solid 1px #ffffff;
+}
+.RECheroAreaNavItems:hover::after {
+    width: 100%; 
+}
+
+.RECaboutUsSectionTitleBoxBox{
+      height: 700px;  
+}
+.RECaboutUsSectionTitleBox{
+    position: relative;
+    height: 200px;
+    background-image: url(static/pattern.jpg);
+    background-repeat: repeat;
+    padding-top: 2em;
+
+}
+.RECpdfImage{
+    position: absolute;
+    top: 12em;
+    width: 60%;
+    margin: 0 20%;
+    box-shadow: 0px 0px 20px #000000;
+}
+
+/*事業概要*/
+.RECgaiyou{
+    display: block;
+}
+.RECgaiyouBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+}
+.RECgaiyouBlock{
+    width: 30%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20px #000000;
+}
+.RECgaiyouBlock > img {
+    width: 100%;
+}
+.RECgaiyouCaptionBox{
+    margin: 1% 2% 2% 2%;
+}
+.RECgaiyouCaption{
+    font-size: 32px;
+    font-weight: 600;
+}
+.RECgaiyouCaptionJP{
+    font-size: 20px;
+    font-weight: 400; 
+}
+.RECgaiyouExplain{
+    font-size: 13px;
+    font-weight: 400; 
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+/*メンバー*/
+.RECmemberSwipeBox {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.RECmemberSwipeBoxInner {
+    display: flex;
+    overflow: hidden;
+}
+
+.RECmemberSwipeBoxInnerInner {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: calc(6 * (25% + 20px));
+    max-width: 100%;
+}
+
+.RECmemberSwipeBlock {
+    text-align: center;
+    width: 30%;
+    margin: 0 10px;
+    position: relative;
+}
+
+.RECmemberSwipeBlock img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.RECmemberSwipeCaption {
+    font-size: 0.8em;
+    opacity: 0.8;
+    margin-top: 10px;
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+.RECmemberSwipeName {
+    font-size: 0.8em;
+    opacity: 0.8;
+    margin-top: 10px;
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+.RECmemberSwipeExplain {
+    font-size: 0.8em;
+    opacity: 0.8;
+    margin-top: 10px;
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.RECmemberSwipeBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+}
+
+.RECmemberSwipeBtnPrev {
+    left: 10px;
+}
+
+.RECmemberSwipeBtnNext {
+    right: 11.5px;
+}
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .RECmemberSwipeBlock {
+        flex: 0 0 calc(50% - 20px);
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .RECmemberSwipeBlock {
+        flex: 0 0 calc(100% - 20px);
+        max-width: none;
+    }
+}
+
+
+/*ニュース*/
+.RECnewsSwipeBox {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 20px; /* 下に余白を追加 */
+}
+
+.RECnewsSwipeBoxInner {
+    display: flex;
+    overflow: hidden;
+}
+
+.RECnewsSwipeBoxInnerInner {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: calc(6 * (25% + 20px)); /* 6つのスライドに合わせた幅 */
+    max-width: 100%;
+}
+
+.RECnewsSwipeBlock {
+    text-align: center;
+    flex: 0 0 calc(33.33% - 20px); /* 3つの画像がちょうど収まるサイズ */
+    max-width: calc(33.33% - 20px); /* 最大幅を設定 */
+    margin: 0 10px;
+    position: relative; /* キャプションを画像の下部に配置するため */
+}
+
+.RECnewsSwipeBlock img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* 画像を中央寄せで表示 */
+}
+
+/* キャプションのスタイル（初期は非表示） */
+.RECnewsSwipeCaption {
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    font-size: 0.8em;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+/* ホバーまたはタッチ時にキャプションを表示 */
+.RECnewsSwipeBlock:hover .RECnewsSwipeCaption,
+.RECnewsSwipeBlock:active .RECnewsSwipeCaption {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.RECnewsSwipeBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+}
+
+.RECnewsSwipeBtnPrev {
+    left: 10px;
+}
+
+.RECnewsSwipeBtnNext {
+    right: 11.5px;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .RECnewsSwipeBlock {
+        flex: 0 0 calc(50% - 20px); /* 2つ表示 */
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .RECnewsSwipeBlock {
+        flex: 0 0 calc(100% - 20px); /* 1つ表示 */
+        max-width: none;
+    }
+}
+
+
+
+
+
+
+/*ポジション*/
+.RECpositionSection{
+    background-image: url(static/pattern.jpg);
+    background-repeat: repeat;
+    height: max-content;
+    padding-bottom: 5%;
+}
+.RECpositionSectionTitleBox{
+    height: 175px;
+}
+
+.RECpositionSortPanel{
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+/*FAQ*/
+.RECfaqSection{
+    background-color: #000000;
+}
+.RECfaqSectionTitleBox{
+    height: 175px;
+}
+.RECfaqListBox{
+
+}
+
+
+
+/* sectiontitle */
+.RECsectionTitle{
+    display: block;
+    position: relative;
+    padding-left: 10%;
+    height: 100px;
+}
+.RECsectionTitleBack{
+    position: absolute;
+    top: 0.05em;
+    font-weight: 900;
+    font-size: 140px;
+    line-height: 0.6em;
+    color: rgba(0,0,0,0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(255, 255, 255, 60%);
+    z-index: 2;
+}
+.RECsectionTitleBackground{
+    content: '';
+    position: absolute;
+    background: linear-gradient(0.25turn, #000000, #8C2383, #FF0505);
+    width: 700px;
+    height: 70px;
+    top: 1em;
+    overflow: visible;
+    z-index: 3;
+}
+.RECsectionTitleFront{
+    position: absolute;
+    font-weight: 900;
+    font-size: 64px;
+    letter-spacing: 0.03em;
+    margin-left: 5px;
+    color: #ffffff;
+    z-index: 4;
+}
+.RECsectionTitleFrontJP{
+    position: absolute;
+    font-weight: 600;
+    font-size: 24px;
+    margin-left: 5px;
+    color: #ffffff;
+    z-index: 4;
+    top: 80%;
+}
+
+/* blocktitle */
+.RECblockTitle {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+    margin-top: 4em;
+    margin-bottom: 2em;
+}
+.RECblockTitleLarge {
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 1em;
+    color: #f20000;
+}
+.RECblockTitleSmall {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1em;
+}
+
+/*ボタン*/
+.RECbuttonBox{
+    height: 20%;
+    display: flex;
+    justify-content: end;
+    padding-right: 5%;
+}
+.RECbutton{
+    margin: auto 0;
+    width: 200px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 40px;
+    letter-spacing: 0.2em;
+    background-color: #B3B3B3;
+    color: #ffffff;
+    border: none;
+    position: relative;
+    text-align: start;
+    padding-left: 2em;
+    transition: 0.3s;
+}
+.RECbutton:hover{
+    background-color: #8c8c8c;
+    color: #000000;
+    padding-left: 4em;
+}
+.RECbutton::after{
+    content: '';
+    position: absolute;
+    background: #ffffff;
+    width: 50px;
+    height: 1px;
+    top: 50%;
+    right: 0px;
+    transition: 0.3s;
+}
+.RECbutton:hover::after{
+    background: #000000;
+    width: 60px;
+}
+
+.RECbuttonW{
+    margin: auto 0;
+    width: 200px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 40px;
+    letter-spacing: 0.2em;
+    background-color: rgba(0,0,0,0%);
+    border: solid 1px #ffffff;
+    color: #ffffff;
+    position: relative;
+    text-align: start;
+    padding-left: 2em;
+    transition: 0.3s;
+}
+.RECbuttonW:hover{
+    color: #ffffff;
+    padding-left: 4em;
+}
+.RECbuttonW::after{
+    content: '';
+    position: absolute;
+    background: #ffffff;
+    width: 50px;
+    height: 1px;
+    top: 50%;
+    right: 0px;
+    transition: 0.3s;
+}
+.RECbuttonW:hover::after{
+    width: 60px;
+}
+
+.RECbuttonB{
+    margin: auto 0;
+    width: 200px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 40px;
+    letter-spacing: 0.2em;
+    background-color: rgba(0,0,0,0%);
+    border: solid 1px #000000;
+    color: #000000;
+    position: relative;
+    text-align: start;
+    padding-left: 5%;
+    transition: 0.3s;
+}
+.RECbuttonB:hover{
+    color: #000000;
+    padding-left: 10%;
+}
+.RECbuttonB::after{
+    content: '';
+    position: absolute;
+    background: #000000;
+    width: 50px;
+    height: 1px;
+    top: 50%;
+    right: 0px;
+    transition: 0.3s;
+}
+.RECbuttonB:hover::after{
+    width: 60px;
+}
+
+
+
+
+
+
+
+
+/*openFAQtest*/
+.accordion {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* inputのチェックボックスを非表示 */
+.accordion-hidden {
+  display: none;
+}
+
+/* 見出しボタン部分 */
+.accordion-open {
+  display: block;
+  padding: 10px 80px 10px 10px;
+  background: #cecece;
+  cursor: pointer;
+  margin: 5px 0;
+  position: relative;
+}
+
+/* ＋アイコン */
+.accordion-open::before {
+    content: '';
+    width: 20px;
+    height: 3px;
+    background: #000;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+}
+.accordion-open::after {
+    content: '';
+    width: 20px;
+    height: 3px;
+    background: #000;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: rotate(90deg);;
+}
+
+/* アコーディオン中身部分 */
+.accordion-inner {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  opacity: 0;
+  transition: 0.5s;
+  /* 表示速度の設定 */
+  cursor: pointer;
+  color: #ffffff;
+}
+
+/* チェックボックスにチェックが入ったら中身部分を表示する */
+.accordion-hidden:checked+.accordion-open+.accordion-inner {
+  height: auto;
+  opacity: 1;
+  padding: 10px;
+}
+/* ↑ここまで共通 */
+
+
+/* Q&A追加 */
+.accordion_qa .Q,
+.accordion_qa .A {
+  position: relative;
+}
+
+.accordion_qa .Q::before,
+.accordion_qa .A::before {
+  font-size: 1.5em;
+  line-height: 1.5em;
+  display: block;
+  position: absolute;
+  top: -.5em;
+  left: -1.3em;
+}
+
+.accordion_qa .Q::before {
+  content: 'Q.';
+}
+
+.accordion_qa .A::before {
+  content: 'A.';
+}
+
+.accordion_qa .accordion-open {
+  padding-left: 2.5em;
+}
+
+.accordion_qa .accordion-hidden:checked+.accordion-open+.accordion-inner {
+  height: auto;
+  opacity: 1;
+  padding: 10px 10px 10px 2.5em;
+}
+/* Q&A追加ここまで */
+
+
+
+
+
+
+
+
+
+
+/*絞り込み*/
+.search_area{
+    background-color: #cecece;
+    height: 500px;
+}
+.filter li {
+  cursor: pointer;
+}
+
+.filter li.is-active {
+  color: red;
+}
+
+.category li {
+  display: none;
+}
+
+.category li.is-show {
+  display: block;
+}
