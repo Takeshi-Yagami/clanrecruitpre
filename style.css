@@ -190,7 +190,7 @@ body{
 }
 .RECheroAreaNavItems:hover {
     color: #ffffff;
-    margin-left: 30px;
+    margin-left: 6rem;
 }
 .RECheroAreaNavItems:hover::before{
     border-top: solid 1px #ffffff;
@@ -229,9 +229,9 @@ display: grid;
 /* ==================================== */
 .carousel-container {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: calc(100vw * 0.5625);
-  margin: 8rem auto 0;
+  margin: -12rem auto 0;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -241,7 +241,7 @@ display: grid;
   align-items: center;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 0%;
   transform: translate(-50%, -50%);
   transition: transform 0.5s ease;
   white-space: nowrap;
@@ -291,22 +291,22 @@ display: grid;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 3;
-  background-color: rgba(255, 255, 255, 0.4);
-  color: #333;
+  z-index: 10;
+  background-color: #fff;
   border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+
 .nav-button:hover {
-  background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  background-color: #f0f0f0;
+  transform: translateY(-50%) scale(1.1);
 }
 
 .nav-button.prev {
@@ -358,10 +358,11 @@ display: grid;
 }
 
 /*メンバー////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* slider-wrapper: スライダー全体のコンテナ */
 .RECmemberSwipeBox {
     position: relative;
     width: 80%; /* 画面幅の80%に設定 */
-    margin: 50px auto; /* 中央に配置 */
+    margin: 0 auto; /* 中央に配置 */
     overflow: hidden;
     padding-left: 40px;
     padding-right: 40px;
@@ -371,44 +372,95 @@ display: grid;
 .slider-container {
     display: flex;
     transition: transform 0.5s ease;
-    /* margin-right: -40px; を削除 */
 }
 
 /* member-card: 各メンバーカードのスタイル */
 .member-card {
     flex: 0 0 120px;
-    height: 240px;
+    height: 250px; /* 高さを調整 */
     margin: 0 5px;
-    padding: 10px;
+    padding: 0; /* paddingをなくす */
     background-color: #f0f0f0;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, z-index 0s 0.3s;
+    transition: transform 0.3s ease;
     position: relative;
     transform-origin: center center;
+    overflow: hidden; /* 画像がはみ出さないように */
+    cursor: pointer;
+}
+.member-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%; /* グラデーションの高さ */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1; /* 画像とテキストの間に配置 */
 }
 
 .member-card:hover {
-    transform: scale(1.2);
+    transform: scale(1.1); /* 拡大率を少し小さく */
     z-index: 20;
 }
 
-/* その他のスタイルは前回と同じです */
+.member-card img {
+    width: 100%; /* 親要素の幅いっぱいに */
+    height: 100%; /* 親要素の高さいっぱいに */
+    object-fit: cover;
+    border-radius: 10px; /* カードの角丸に合わせる */
+    transition: opacity 0.3s ease;
+}
+
+.member-card:hover img {
+    opacity: 0.5; /* ホバー時に画像を暗く */
+}
+
+/* メンバー名と役職のスタイル */
+.member-card h3,
+.member-card > p {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; /* 画像より手前に配置 */
+    color: white;
+    text-shadow: 3px 3px 4px rgba(0,0,0,0.7); /* 文字を読みやすく */
+    background: none; /* 背景をなくす */
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+.member-card h3{
+        width: 90%;
+    bottom: 20%; /* カード下部に配置 */
+}
+.member-card > p {
+    width: 90%;
+    bottom: 10%;
+    font-size: 0.8rem;
+}
 
 /* slider-button: 左右の矢印ボタン */
 .slider-button {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.slider-button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-50%) scale(1.1);
 }
 
 #prevBtn {
@@ -433,8 +485,9 @@ display: grid;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0;
+    opacity: 0; /* 初期状態は非表示 */
     transition: opacity 0.3s ease;
+    z-index: 3; /* ホバー時に前面に表示 */
 }
 
 .member-card:hover .detail {
@@ -456,7 +509,7 @@ display: grid;
     margin: 0 auto;
 }
 .RECenvironmentBox{
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -539,90 +592,55 @@ display: grid;
 
 
 /*オフィス////////////////////////////////////////////////////////////////////////////////////////////////////*/
-.RECoffice{
-    margin: 0;
-    overflow-x: hidden; /* 横方向のスクロールバーを非表示にする */
-    background-color: #000; /* 背景色を黒に設定 */
+.RECoffice {
+    padding: 0.5%;
+    overflow-x: hidden;
+    background-color: #000;
 }
 
-/* 既存のbodyとpopupのスタイルはそのまま使用 */
-
-.scroll-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 20px 0;
+@keyframes infinity-scroll-left {
+from {
+  transform: translateX(0);
+}
+  to {
+  transform: translateX(-100%);
+}
+}
+@keyframes infinity-scroll-left-shifted {
+  from {
+    /* 初期位置を左に50%ずらす */
+    transform: translateX(-5%);
+  }
+  to {
+    /* 最終位置も同様に左に50%ずらす */
+    transform: translateX(-105%); /* -100% + -50% */
+  }
 }
 
-.image-row {
-    display: flex;
-    white-space: nowrap;
-    animation: scroll-animation 60s linear infinite;
-    /* width: 200%; ← この設定は削除 */
+.scroll-infinity__wrap {
+  display: flex;
+  overflow: hidden;
+}
+.scroll-infinity__list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.scroll-infinity__list--left {
+  animation: infinity-scroll-left 60s infinite linear 0.5s both;
+}
+.scroll-infinity__item {
+  width: calc(100vw / 6);
+  margin: 0.5%;
+}
+.scroll-infinity__item>img {
+  width: 100%;
 }
 
-/* 偶数行は少し下にずらす */
-.image-row:nth-child(even) {
-    margin-top: 20px;
+.sill_delayed {
+  animation: infinity-scroll-left-shifted 60s infinite linear 0.5s both;
 }
-
-/* 1行目と2行目の左右の位置をずらす */
-.image-row:nth-child(1) {
-    /* 1行目の初期位置を右にずらす */
-    transform: translateX(20%);
-}
-
-.image-row:nth-child(2) {
-    /* 2行目の初期位置を左にずらす */
-    transform: translateX(-20%);
-}
-
-.image-row img {
-    width: 200px;
-    height: auto;
-    margin: 0 10px;
-    cursor: pointer;
-    vertical-align: top;
-    display: inline-block;
-}
-
-/* アニメーションのキーフレーム */
-@keyframes scroll-animation {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-/* ポップアップのスタイル */
-.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none; /* 初期状態では非表示 */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.popup-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    position: relative;
-    max-width: 500px;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-
-
 
 /*ニュース////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .RECnewsSwipeBox {
@@ -662,7 +680,7 @@ display: grid;
   overflow: hidden;
   border-radius: 8px; /* 角を丸くする */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  cursor:default;
 }
 
 .RECnewscard:hover {
@@ -684,9 +702,9 @@ display: grid;
 .card-overlay {
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: -1.5rem;
   width: 100%;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
   color: #fff;
 }
@@ -695,6 +713,9 @@ display: grid;
   margin: 0;
   font-size: 1.2rem;
   font-weight: bold;
+    text-align: end;
+    cursor: pointer;
+
 }
 
 /* スクロールボタン */
@@ -958,7 +979,7 @@ transition: max-height 0.3s ease-out; /* 開閉アニメーション */
     display: flex;
     flex-direction: column;
     padding-left: 15%;
-    margin-top: 4em;
+    margin-top: 7rem;
     margin-bottom: 2em;
 }
 .RECblockTitleLarge {
@@ -1002,6 +1023,7 @@ transition: max-height 0.3s ease-out; /* 開閉アニメーション */
 
 /*ボタン*/
 .RECbutton{
+    cursor: pointer;
     margin: auto 0;
     width: 200px;
     font-weight: 700;
@@ -1082,6 +1104,7 @@ transition: max-height 0.3s ease-out; /* 開閉アニメーション */
 }
 
 .RECbuttonB{
+    cursor: pointer;
     margin: auto 0;
     width: 200px;
     font-weight: 700;
@@ -1119,7 +1142,7 @@ transition: max-height 0.3s ease-out; /* 開閉アニメーション */
 
 
 /*絞り込み//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-.RECpositionBox{
+.RECpositionBox {
     margin: 0 auto;
     padding-top: 5rem;
     padding-bottom: 5rem;
@@ -1224,7 +1247,8 @@ hr {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* 2段組にする設定 */
+    grid-template-columns: repeat(auto-fit, minmax(calc(50% - 10px), 1fr));
     gap: 20px;
 }
 
@@ -1233,26 +1257,35 @@ hr {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: opacity 0.5s ease-in-out; /* ここをopacityのみに修正 */
     opacity: 1;
-    transform: translateY(0);
-}
-.content-link {
-    text-decoration: none;  /* 下線を消す */
-    color: inherit;         /* 親要素の文字色を継承する */
-    display: block;         /* ブロック要素として扱い、クリック可能な範囲を広げる */
+    display: block; /* デフォルトの表示をblockに設定 */
 }
 
-/* ホバー時のスタイル例 */
+/* 修正点：hiddenクラスが付与されたらopacityを0にし、display: none;でレイアウトから除外する */
+.content-item.hidden {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+}
+
+.content-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .content-item:hover {
-    transform: translateY(-5px); /* 少し上に移動する */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* 影を濃くする */
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .content-item.hidden {
     opacity: 0;
-    transform: translateY(10px);
-    pointer-events: none;
+    transform: translateY(20px);
+    height: 0;
+    padding: 0 20px;
+    margin-bottom: 0;
 }
 
 .content-item h3 {
