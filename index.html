@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script>
+        // PDF.jsのワーカーファイルの場所を指定します
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+    </script>
     </head>
 <body>
     <header class="RECheader">
@@ -60,7 +66,22 @@
                     <div class="RECsectionTitleFront">About Us</div>
                     <div class="RECsectionTitleFrontJP">ClaN Entertainmentを知る</div>
                 </div>
-                <img class="RECpdfImage" src="static/pdftop.png" />
+                
+                <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <!-- <div class="image-wrapper"><img src="static/pdftop.png" alt="画像1"></div>
+                    <div class="image-wrapper"><img src="static/pdftop.png" alt="画像1"></div>
+                    <div class="image-wrapper"><img src="static/pdftop.png" alt="画像1"></div>
+                    <div class="image-wrapper"><img src="static/pdftop.png" alt="画像1"></div>
+                    <div class="image-wrapper"><img src="static/pdftop.png" alt="画像1"></div>
+                    <div class="image-wrapper"><img src="static/pdftop.png" alt="画像1"></div>
+                    <div class="image-wrapper"><img src="static/pdftop.png" alt="画像1"></div>
+                    <div class="image-wrapper"><img src="static/pdftop.png" alt="画像1"></div> -->
+                </div>
+                <button class="nav-button prev">＜</button>
+                <button class="nav-button next">＞</button>
+                </div>
+
             </div>
         </div>
 
@@ -109,77 +130,185 @@
         </div>
 
         <div class="RECmemberSwipeBox"> 
-            <button class="RECmemberSwipeBtn RECmemberSwipeBtnPrev"><</button> <!-- 左矢印 -->
-            <div class="RECmemberSwipeBoxInner">
-                <div class="RECmemberSwipeBoxInnerInner">
-                    <div class="RECmemberSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECmemberSwipeCaption">キャプション1</div>
-                        <div class="RECmemberSwipeName">お名前</div>
-                        <div class="RECmemberSwipeExplain">ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。</div>
+            <div class="slider-container">
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150" alt="メンバー1の画像">
+                        <h3>メンバー1</h3>
+                        <p>フロントエンド担当</p>
+                        <div class="detail">
+                            <p>得意な技術: HTML, CSS, JavaScript</p>
+                            <p>趣味: プログラミング</p>
+                            <p>一言: よろしくお願いします！</p>
+                        </div>
                     </div>
-                    <div class="RECmemberSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECmemberSwipeCaption">キャプション1</div>
-                        <div class="RECmemberSwipeName">お名前</div>
-                        <div class="RECmemberSwipeExplain">ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。</div>
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150" alt="メンバー2の画像">
+                        <h3>メンバー2</h3>
+                        <p>バックエンド担当</p>
+                        <div class="detail">
+                            <p>得意な技術: Python, Django, SQL</p>
+                            <p>趣味: 読書</p>
+                            <p>一言: サーバーサイドはお任せください。</p>
+                        </div>
                     </div>
-                    <div class="RECmemberSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECmemberSwipeCaption">キャプション1</div>
-                        <div class="RECmemberSwipeName">お名前</div>
-                        <div class="RECmemberSwipeExplain">ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。</div>
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150" alt="メンバー3の画像">
+                        <h3>メンバー3</h3>
+                        <p>UI/UXデザイナー</p>
+                        <div class="detail">
+                            <p>得意な技術: Figma, Adobe XD</p>
+                            <p>趣味: デザイン</p>
+                            <p>一言: 使いやすいデザインを心がけています。</p>
+                        </div>
                     </div>
-                    <div class="RECmemberSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECmemberSwipeCaption">キャプション1</div>
-                        <div class="RECmemberSwipeName">お名前</div>
-                        <div class="RECmemberSwipeExplain">ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。</div>
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150" alt="メンバー4の画像">
+                        <h3>メンバー4</h3>
+                        <p>プロジェクトマネージャー</p>
+                        <div class="detail">
+                            <p>得意なこと: スケジュール管理</p>
+                            <p>趣味: 旅行</p>
+                            <p>一言: プロジェクトを成功に導きます！</p>
+                        </div>
                     </div>
-                    <div class="RECmemberSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECmemberSwipeCaption">キャプション1</div>
-                        <div class="RECmemberSwipeName">お名前</div>
-                        <div class="RECmemberSwipeExplain">ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。</div>
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150" alt="メンバー5の画像">
+                        <h3>メンバー5</h3>
+                        <p>広報担当</p>
+                        <div class="detail">
+                            <p>得意なこと: コミュニケーション</p>
+                            <p>趣味: 映画鑑賞</p>
+                            <p>一言: 魅力的な情報を発信します。</p>
+                        </div>
                     </div>
-                    <div class="RECmemberSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECmemberSwipeCaption">キャプション1</div>
-                        <div class="RECmemberSwipeName">お名前</div>
-                        <div class="RECmemberSwipeExplain">ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。</div>
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150" alt="メンバー6の画像">
+                        <h3>メンバー6</h3>
+                        <p>エンジニア</p>
+                        <div class="detail">
+                            <p>得意な技術: C++, Java</p>
+                            <p>趣味: ゲーム</p>
+                            <p>一言: 技術的な課題を解決します。</p>
+                        </div>
                     </div>
-                    <div class="RECmemberSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECmemberSwipeCaption">キャプション1</div>
-                        <div class="RECmemberSwipeName">お名前</div>
-                        <div class="RECmemberSwipeExplain">ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。</div>
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150" alt="メンバー7の画像">
+                        <h3>メンバー7</h3>
+                        <p>マーケター</p>
+                        <div class="detail">
+                            <p>得意なこと: データ分析</p>
+                            <p>趣味: スポーツ</p>
+                            <p>一言: 効果的なマーケティング戦略を立案します。</p>
+                        </div>
                     </div>
-                </div>
+                    <div class="member-card">
+                        <img src="https://via.placeholder.com/150" alt="メンバー8の画像">
+                        <h3>メンバー8</h3>
+                        <p>デザイナー</p>
+                        <div class="detail">
+                            <p>得意な技術: Illustrator, Photoshop</p>
+                            <p>趣味: アート</p>
+                            <p>一言: 美しいデザインを提供します。</p>
+                        </div>
+                    </div>
             </div>
-            <button class="RECmemberSwipeBtn RECmemberSwipeBtnNext">></button> <!-- 右矢印 -->
+            <button id="prevBtn" class="slider-button">◀</button>
+            <button id="nextBtn" class="slider-button">▶</button>
         </div>
 
 
         <!--福利厚生-->
         <div class="RECblockTitle" id="RECMOVEenvironment">
             <div class="RECblockTitleLarge">WORK ENVIRONMENT</div>
-            <div class="RECblockTitleSmall">福利厚生</div>
+            <div class="RECblockTitleSmall">働く環境を知る</div>
+        </div>
+
+        <div class="RECpartTitle">
+            <div class="RECpartTitleText">BENEFIT</div>
         </div>
         
-        <div class="RECofficeCaption">ここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でも</div>
+        <p class="RECenvironmentCaption">ここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でもここにちょっとした紹介文でも</p>
 
-        <div class="RECofficeSlider">
+        <div class="RECenvironmentBox">
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>オフィスコンビニ／自動販売機購入補助</h3>
+                    <div class="description">オフィス内のコンビニや自動販売機で購入した飲料・軽食に対し、一部費用を補助します。小腹が空いたときや仕事の合間のリフレッシュにご活用いただけます。</div>
+                </div>
+                <div class="grid-item">
+                    <h3>ランチカー補助</h3>
+                    <div class="description">提携ランチカー利用時に、一部費用を負担します。日替わりで多彩なメニューが楽しめ、ランチタイムがより充実します。</div>
+                </div>
+                <div class="grid-item">
+                    <h3>借上げ社宅制度</h3>
+                    <div class="description">会社が契約した物件を社宅として利用できる制度です。家賃補助が受けられ、安心して生活基盤を整えられます。</div>
+                </div>
+                <div class="grid-item">
+                    <h3>主催ライブ、イベント等の視聴コードを配布</h3>
+                    <div class="description">会社主催のライブやイベントの配信を、無料でご視聴いただけるコードを配布します。ご家族も一緒に楽しめます。</div>
+                </div>
+                <div class="grid-item">
+                    <h3>誕生日休暇</h3>
+                    <div class="description">誕生日月に特別休暇を取得できます。大切な日をゆっくり過ごして、リフレッシュしてください。</div>
+                </div>
+                <div class="grid-item">
+                    <h3>社会保険完備</h3>
+                    <div class="description">健康保険・厚生年金・雇用保険・労災保険を完備しています。安心して長く働ける環境を整えています。</div>
+                </div>
+                <div class="grid-item">
+                    <h3>通勤交通費支給</h3>
+                    <div class="description">公共交通機関での通勤費用を支給します。遠方からの通勤もサポートします。</div>
+                </div>
+                <div class="grid-item">
+                    <h3>MVP制度</h3>
+                    <div class="description">半期ごとに活躍した社員を表彰する制度です。成果や貢献をしっかり評価し、インセンティブを授与します。</div>
+                </div>
+                <div class="grid-item">
+                    <h3>有給休暇取得奨励日</h3>
+                    <div class="description">有給休暇を取得しやすいよう、全社で推奨する日を設定しています。計画的に休暇を取り、心身をリフレッシュできます。</div>
+                </div>
+            </div>
         </div>
+        </div>
+
 
 
 
         <!--オフィス-->
-        <div class="RECblockTitle" id="RECMOVEoffice">
-            <div class="RECblockTitleLarge">OFFICE</div>
-            <div class="RECblockTitleSmall">オフィス紹介</div>
+        <div class="RECpartTitle">
+            <div class="RECpartTitleText">OFFICE</div>
         </div>
 
-        <div class="RECenvironment"></div>
+        <div class="RECoffice">
+            <div class="scroll-container">
+                <div class="image-row">
+                    <div class="image-wrapper">
+                        <img src="static/office/IMG_3039.jpg" alt="説明1" data-description="説明1">
+                        <img src="static/office/IMG_3039.jpg" alt="説明1" data-description="説明1">
+                        <img src="static/office/IMG_3039.jpg" alt="説明1" data-description="説明1">
+                        <img src="static/office/IMG_3039.jpg" alt="説明1" data-description="説明1">
+                        <img src="static/office/IMG_3039.jpg" alt="説明1" data-description="説明1">
+                        </div>
+                    </div>
+
+                <div class="image-row">
+                    <div class="image-wrapper">
+                        <img src="static/office/IMG_3039.jpg" alt="説明1" data-description="説明1">
+                        <img src="static/office/IMG_3039.jpg" alt="説明1" data-description="説明1">
+                        <img src="static/office/IMG_3039.jpg" alt="説明1" data-description="説明1">
+                        <img src="static/office/IMG_3039.jpg" alt="説明1" data-description="説明1">
+                        <img src="static/office/IMG_3039.jpg" alt="説明1" data-description="説明1">
+                        </div>
+                </div>
+            </div>
+
+        <div id="popup" class="popup-overlay">
+            <div class="popup-content">
+                <span class="close-btn">&times;</span>
+                <p id="popup-description"></p>
+            </div>
+        </div>
+        </div>
 
         <!--ニュース-->
         <div class="RECblockTitle" id="RECMOVEnews">
@@ -188,88 +317,125 @@
         </div>
 
         <div class="RECnewsSwipeBox"> 
-            <button class="RECnewsSwipeBtn RECnewsSwipeBtnPrev"><</button> <!-- 左矢印 -->
-            <div class="RECnewsSwipeBoxInner">
-                <div class="RECnewsSwipeBoxInnerInner">
-                    <div class="RECnewsSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECnewsSwipeCaption">キャプション1</div>
-                    </div>
-                    <div class="RECnewsSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECnewsSwipeCaption">キャプション1</div>
-                    </div>
-                    <div class="RECnewsSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECnewsSwipeCaption">キャプション1</div>
-                    </div>
-                    <div class="RECnewsSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECnewsSwipeCaption">キャプション1</div>
-                    </div>
-                    <div class="RECnewsSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECnewsSwipeCaption">キャプション1</div>
-                    </div>
-                    <div class="RECnewsSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECnewsSwipeCaption">キャプション1</div>
-                    </div>
-                    <div class="RECnewsSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECnewsSwipeCaption">キャプション1</div>
-                    </div>
-                    <div class="RECnewsSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECnewsSwipeCaption">キャプション1</div>
-                    </div>
-                    <div class="RECnewsSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECnewsSwipeCaption">キャプション1</div>
-                    </div>
-                    <div class="RECnewsSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECnewsSwipeCaption">キャプション1</div>
-                    </div>
-                    <div class="RECnewsSwipeBlock">
-                        <img src="static/pattern.jpg" alt="画像1">
-                        <div class="RECnewsSwipeCaption">キャプション1</div>
-                    </div>
+            <div class="RECnewsscroll-container">
+            <button class="RECnewsscroll-button RECnewsprev-button">❮</button>
+            <div class="RECnewsscroll-content">
+                <div class="RECnewscard">
+                <img src="static/pattern.jpg" alt="コラム画像1">
+                <div class="card-overlay">
+                    <h3 class="card-title">コラムタイトル1</h3>
+                </div>
+                </div>
+                <div class="RECnewscard">
+                <img src="static/pattern.jpg" alt="コラム画像2">
+                <div class="card-overlay">
+                    <h3 class="card-title">コラムタイトル2</h3>
+                </div>
+                </div>
+                <div class="RECnewscard">
+                <img src="static/pattern.jpg" alt="コラム画像3">
+                <div class="card-overlay">
+                    <h3 class="card-title">コラムタイトル3</h3>
+                </div>
+                </div>
+                <div class="RECnewscard">
+                <img src="static/pattern.jpg" alt="コラム画像4">
+                <div class="card-overlay">
+                    <h3 class="card-title">コラムタイトル4</h3>
+                </div>
+                </div>
+                <div class="RECnewscard">
+                <img src="static/pattern.jpg" alt="コラム画像5">
+                <div class="card-overlay">
+                    <h3 class="card-title">コラムタイトル5</h3>
+                </div>
                 </div>
             </div>
-            <button class="RECmemberSwipeBtn RECmemberSwipeBtnNext">></button> <!-- 右矢印 -->
+            <button class="RECnewsscroll-button RECnewsnext-button">❯</button>
+            </div>
+
+            <div class="RECnewsButton">
+                <button class="RECbuttonB">MORE</button>
+            </div>
         </div>
 
     </section>
 
     <section class="RECpositionSection" id="RECMOVEposition">
-        <div class="RECpositionSectionTitleBox">
-            <div class="RECsectionTitle">
-                <div class="RECsectionTitleBack">Position</div>
-                <div class="RECsectionTitleBackground"></div>
-                <div class="RECsectionTitleFront">Position</div>
-                <div class="RECsectionTitleFrontJP">募集中のコース</div>
+        <div class="RECsectionTitle">
+            <div class="RECsectionTitleBack">Position</div>
+            <div class="RECsectionTitleBackground"></div>
+            <div class="RECsectionTitleFront">Position</div>
+            <div class="RECsectionTitleFrontJP">募集中の職種</div>
+        </div>
+
+        <div class="RECpositionBox">
+        <div class="filters">
+            <div class="filter-group">
+                <h3>職種</h3>
+                <label><input type="checkbox" name="job" value="コンテンツプロデューサー"> <span class="checkmark"></span> コンテンツプロデューサー</label>
+                <label><input type="checkbox" name="job" value="コーポレート"> <span class="checkmark"></span> コーポレート</label>
+                <label><input type="checkbox" name="job" value="ビジネスプロデューサー"> <span class="checkmark"></span> ビジネスプロデューサー</label>
+                <label><input type="checkbox" name="job" value="プランニングディレクター"> <span class="checkmark"></span> プランニングディレクター</label>
+                <label><input type="checkbox" name="job" value="タレントマネージャー"> <span class="checkmark"></span> タレントマネージャー</label>
+                <label><input type="checkbox" name="job" value="マーチャンダイザー"> <span class="checkmark"></span> マーチャンダイザー</label>
+            </div>
+
+            <div class="filter-group">
+                <h3>雇用形態</h3>
+                <label><input type="checkbox" name="employment" value="正社員"> <span class="checkmark"></span> 正社員</label>
+                <label><input type="checkbox" name="employment" value="契約社員"> <span class="checkmark"></span> 契約社員</label>
+                <label><input type="checkbox" name="employment" value="アルバイト"> <span class="checkmark"></span> アルバイト</label>
+                <label><input type="checkbox" name="employment" value="業務委託"> <span class="checkmark"></span> 業務委託</label>
             </div>
         </div>
 
-        <div class="RECpositionSortPanel">
-            <div class="search_area">
-            <ul class="filter">
-                <li data-filter="all" class="is-active">全て表示</li>
-                <li data-filter="vegetable">野菜</li>
-                <li data-filter="drink">飲み物</li>
-                <li data-filter="fruit">フルーツ</li>
-            </ul>
-            
-            <ul class="category">
-                <li data-category="vegetable" class="is-show">ニンジン</li>
-                <li data-category="vegetable" class="is-show">トマト</li>
-                <li data-category="drink" class="is-show">コーラ</li>
-                <li data-category="drink" class="is-show">牛乳</li>
-                <li data-category="fruit" class="is-show">リンゴ</li>
-                <li data-category="fruit" class="is-show">マンゴー</li>
-            </ul>
-            </div>
+        <hr>
+
+        <ul class="content-list">
+            <li class="content-item" data-tags="ビジネスプロデューサー 正社員">
+                <a href="リンク先のURL" class="content-link">
+                <h3>ビジネスプロデューサー（ソリューション営業）</h3>
+                <p>職種：ビジネスプロデューサー<br/>雇用形態：正社員</p>
+                </a>
+            </li>
+            <li class="content-item" data-tags="コーポレート 契約社員">
+                <a href="リンク先のURL" class="content-link">
+                <h3>プランニングディレクター</h3>
+                <p>職種：コーポレート<br/>雇用形態：契約社員</p>
+                </a>
+            </li>
+            <li class="content-item" data-tags="ビジネスプロデューサー 正社員">
+                <a href="リンク先のURL" class="content-link">
+                <h3>IPプロデューサー</h3>
+                <p>職種：ビジネスプロデューサー<br/>雇用形態：正社員</p>
+                </a>
+            </li>
+            <li class="content-item" data-tags="プランニングディレクター アルバイト">
+                <a href="リンク先のURL" class="content-link">
+                <h3>イベントプロデューサー</h3>
+                <p>職種：プランニングディレクター<br/>雇用形態：アルバイト</p>
+                </a>
+            </li>
+            <li class="content-item" data-tags="タレントマネージャー 業務委託">
+                <a href="リンク先のURL" class="content-link">
+                <h3>コンテンツプロデューサー</h3>
+                <p>職種：タレントマネージャー<br/>雇用形態：業務委託</p>
+                </a>
+            </li>
+            <li class="content-item" data-tags="マーチャンダイザー 正社員">
+                <a href="リンク先のURL" class="content-link">
+                <h3>音楽プロデューサー</h3>
+                <p>職種：マーチャンダイザー<br/>雇用形態：正社員</p>
+                </a>
+            </li>
+            <li class="content-item" data-tags="コンテンツプロデューサー 契約社員">
+                <a href="リンク先のURL" class="content-link">
+                <h3>コンテンツG</h3>
+                <p>職種：コンテンツプロデューサー<br/>雇用形態：契約社員</p>
+                </a>
+            </li>
+        </ul>
         </div>
         
     </section>
@@ -285,38 +451,27 @@
         </div>
         </div>
 
-        <div class="RECfaqListBox">
-            <div class="RECfaqLists">
-                <div class="RECfaqListItem"></div>
-                <div class="RECfaqListItem"></div>
-                <div class="RECfaqListItem"></div>
-                <div class="RECfaqListItem"></div>
-                <div class="RECfaqListItem"></div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <h2 class="faq-question">質問1：FAQの開閉はどうやって実現していますか？</h2>
+                <div class="faq-answer">
+                    <p>JavaScriptを使って、クリックイベントを検知し、CSSのクラスを付け外しすることで表示・非表示を切り替えています。CSSの`max-height`と`overflow: hidden`を組み合わせることで、スムーズなアニメーションを実現しています。</p>
+                </div>
             </div>
-        </div>
 
-        <div class="accordion accordion_qa">
-            <input type="checkbox" id="check5" class="accordion-hidden">
-            <label for="check5" class="accordion-open"><span class="Q">質問1</span></label>
-            <label for="check5" class="accordion-inner">
-            <span class="A"></span>
-            回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります
-            </label>
+            <div class="faq-item">
+                <h2 class="faq-question">質問2：デザインを変更したいのですが？</h2>
+                <div class="faq-answer">
+                    <p>CSSファイル（`style.css`）を編集してください。背景色、文字色、フォントサイズなど、自由にカスタマイズできます。`faq-container`、`faq-item`、`faq-question`、`faq-answer`などのクラスをターゲットにしてスタイルを調整してください。</p>
+                </div>
+            </div>
 
-            <input type="checkbox" id="check6" class="accordion-hidden">
-            <label for="check6" class="accordion-open"><span class="Q">長い質問2質問2質問2質問2質問2質問2質問2質問2質問2質問質問質問2質問2質問2質問2質問2質問2質問2質問2質問2質問2質問2</span></label>
-            <label for="check6" class="accordion-inner">
-            <span class="A"></span>
-            回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります回答が入ります
-            </label>
-
-            <input type="checkbox" id="check7" class="accordion-hidden">
-            <label for="check7" class="accordion-open"><span class="Q">質問3</span></label>
-            <label for="check7" class="accordion-inner"><span class="A"></span>回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。</label>
-
-            <input type="checkbox" id="check8" class="accordion-hidden">
-            <label for="check8" class="accordion-open"><span class="Q">質問4</span></label>
-            <label for="check8" class="accordion-inner"><span class="A"></span>回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。回答が入ります。</label>
+            <div class="faq-item">
+                <h2 class="faq-question">質問3：質問や回答を追加したい場合は？</h2>
+                <div class="faq-answer">
+                    <p>HTMLファイル（`index.html`）を編集してください。既存の`<div class="faq-item">...</div>`のブロックをコピーして、新しい質問と回答の内容に書き換えるだけで、簡単に項目を追加できます。</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -328,6 +483,7 @@
     </footer>
 
     <script>
+        // アニメーション
         document.addEventListener("DOMContentLoaded", () => {
             const objects = document.querySelectorAll('.AddOpenAnimation');
 
@@ -371,150 +527,341 @@
         }
     </script>
 
-    <script> // スライダー news
-        document.addEventListener('DOMContentLoaded', function () {
-        const mySliderTrack = document.querySelector('.RECnewsSwipeBoxInnerInner');
-        const mySlides = document.querySelectorAll('.RECnewsSwipeBlock');
-        const myBtnPrev = document.querySelector('.RECnewsSwipeBtnPrev');
-        const myBtnNext = document.querySelector('.RECnewsSwipeBtnNext');
-        let myCurrentSlide = 0;
-        const mySlideCount = mySlides.length;
-        const slideIntervalTime = 5000; // 5秒ごとにスライド
-        let autoScrollInterval;
 
-        // 表示されるスライド数を動的に取得
-        function getVisibleSlides() {
-            const containerWidth = document.querySelector('.RECnewsSwipeBox').offsetWidth;
-            const slideWidth = mySlides[0].offsetWidth + 20; // スライドの幅 + マージン
-            return Math.round(containerWidth / slideWidth); // 四捨五入
-        }
 
-        // スライドを更新
-        function updateMySlider() {
-            const slideWidth = mySlides[0].clientWidth + 20; // スライドの幅 + マージン
-            mySliderTrack.style.transform = `translateX(-${myCurrentSlide * slideWidth}px)`;
-        }
+<script>
+    // オフィススライドショー
+document.addEventListener('DOMContentLoaded', () => {
+    // ポップアップ機能のコードは省略
 
-        // 自動スライド
-        function autoScroll() {
-            const visibleSlides = getVisibleSlides();
-            myCurrentSlide++;
-            if (myCurrentSlide >= mySlideCount - visibleSlides + 1) {
-                myCurrentSlide = 0; // 最初のスライドに戻る
-            }
-            updateMySlider();
-        }
+    const imageRows = document.querySelectorAll('.image-row');
 
-        // タイマーリセット＆再スタート
-        function resetAutoScroll() {
-            clearInterval(autoScrollInterval); // タイマーリセット
-            autoScrollInterval = setInterval(autoScroll, slideIntervalTime); // タイマー再スタート
-        }
+    imageRows.forEach(row => {
+        const wrapper = row.querySelector('.image-wrapper');
+        const clonedWrapper = wrapper.cloneNode(true);
+        row.appendChild(clonedWrapper);
 
-        // 矢印をクリックでスライド移動、タイマーリセット
-        myBtnNext.addEventListener('click', () => {
-            const visibleSlides = getVisibleSlides();
-            myCurrentSlide++;
-            if (myCurrentSlide >= mySlideCount - visibleSlides + 1) {
-                myCurrentSlide = 0; // 最初のスライドに戻る
-            }
-            updateMySlider();
-            resetAutoScroll(); // タイマーリセット
+        // ここでwrapperの幅を計算し、CSS変数として設定
+        const wrapperWidth = wrapper.getBoundingClientRect().width;
+        row.style.setProperty('--row-width', `${wrapperWidth}px`);
+    });
+
+    // ポップアップ機能のイベントリスナーはここに追加
+    const images = document.querySelectorAll('.image-row img');
+    const popupOverlay = document.getElementById('popup');
+    const popupDescription = document.getElementById('popup-description');
+    const closeBtn = document.querySelector('.close-btn');
+
+    images.forEach(image => {
+        image.addEventListener('click', () => {
+            const description = image.getAttribute('data-description');
+            popupDescription.textContent = description;
+            popupOverlay.style.display = 'flex';
         });
+    });
 
-        myBtnPrev.addEventListener('click', () => {
-            const visibleSlides = getVisibleSlides();
-            myCurrentSlide--;
-            if (myCurrentSlide < 0) {
-                myCurrentSlide = mySlideCount - visibleSlides; // 最後のスライドに戻る
-            }
-            updateMySlider();
-            resetAutoScroll(); // タイマーリセット
-        });
+    closeBtn.addEventListener('click', () => {
+        popupOverlay.style.display = 'none';
+    });
 
-        // 自動スクロールを開始
-        autoScrollInterval = setInterval(autoScroll, slideIntervalTime);
-
-        // ウィンドウのリサイズ時にスライドを更新
-        window.addEventListener('resize', updateMySlider);
-
-        // スマホ用のスワイプ操作の実装
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        document.querySelector('.RECnewsSwipeBoxInner').addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        document.querySelector('.RECnewsSwipeBoxInner').addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleGesture();
-        });
-
-        function handleGesture() {
-            const visibleSlides = getVisibleSlides();
-            if (touchEndX < touchStartX) {
-                // 右スワイプ
-                myCurrentSlide++;
-                if (myCurrentSlide >= mySlideCount - visibleSlides + 1) {
-                    myCurrentSlide = 0; // 最初のスライドに戻る
-                }
-            } else if (touchEndX > touchStartX) {
-                // 左スワイプ
-                myCurrentSlide--;
-                if (myCurrentSlide < 0) {
-                    myCurrentSlide = mySlideCount - visibleSlides; // 最後のスライドに戻る
-                }
-            }
-            updateMySlider();
-            resetAutoScroll(); // タイマーリセット
+    popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+            popupOverlay.style.display = 'none';
         }
     });
-    </script>
+});
+</script>
 
-    <script> //絞り込み
-    const filterButtons = document.querySelectorAll('[data-filter]');
-const categoryContents = document.querySelectorAll('[data-category]');
 
-filterButtons.forEach((filterButton) => {
-  filterButton.addEventListener('click', buttonSwitch);
-  filterButton.addEventListener('click', categoryFilter);
+
+<script> // スライダー member
+    const sliderContainer = document.querySelector('.slider-container');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const memberCards = document.querySelectorAll('.member-card');
+
+    // カードの幅 (120px) + 左右のマージン (5px + 5px = 10px)
+    const cardWidth = 120 + 10;
+    let currentIndex = 0;
+
+    // 「次へ」ボタンがクリックされた時の処理
+    nextBtn.addEventListener('click', () => {
+        // 最後のカードでなければ、インデックスを増やす
+        if (currentIndex < memberCards.length - 1) {
+            currentIndex++;
+            updateSliderPosition();
+        }
+    });
+
+    // 「前へ」ボタンがクリックされた時の処理
+    prevBtn.addEventListener('click', () => {
+        // 最初のカードでなければ、インデックスを減らす
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSliderPosition();
+        }
+    });
+
+    // スライダーの位置を更新する関数
+    function updateSliderPosition() {
+        // transform: translateXで横方向にずらす
+        sliderContainer.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+</script>
+
+
+
+<script>
+    // PDFスライダー
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const wrapper = document.querySelector('.carousel-wrapper');
+//   const images = document.querySelectorAll('.image-wrapper');
+//   const prevBtn = document.querySelector('.prev');
+//   const nextBtn = document.querySelector('.next');
+
+//   // ★★★ 修正点：手動で画像の総数を設定する変数 ★★★
+//   const totalImages = 8; // ここに手動で画像の枚数を入力してください
+//   // ★★★★★★★★★★★★★★★★★★★★★★★★★★
+  
+//   let currentIndex = 0;
+//   let isAnimating = false;
+
+//   updateCarousel();
+
+//   prevBtn.addEventListener('click', () => {
+//     if (isAnimating) return;
+//     isAnimating = true;
+//     currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalImages - 1;
+//     updateCarousel();
+//   });
+
+//   nextBtn.addEventListener('click', () => {
+//     if (isAnimating) return;
+//     isAnimating = true;
+//     currentIndex = (currentIndex < totalImages - 1) ? currentIndex + 1 : 0;
+//     updateCarousel();
+//   });
+
+//   function updateCarousel() {
+//     images.forEach((img, index) => {
+//       if (index === currentIndex) {
+//         img.classList.add('active');
+//       } else {
+//         img.classList.remove('active');
+//       }
+//     });
+
+//     setTimeout(() => {
+//       const container = document.querySelector('.carousel-container');
+//       const containerWidth = container.offsetWidth;
+//       const activeImageWidth = images[currentIndex].offsetWidth;
+//       const imageMargin = parseFloat(window.getComputedStyle(images[0]).marginLeft) + parseFloat(window.getComputedStyle(images[0]).marginRight);
+
+//       let totalShift = 0;
+//       for (let i = 0; i < currentIndex; i++) {
+//         totalShift += images[i].offsetWidth + imageMargin;
+//       }
+      
+//       const offset = (containerWidth / 2) - (totalShift + activeImageWidth / 2);
+      
+//       wrapper.style.transform = `translate(${offset}px, -50%)`;
+//       isAnimating = false;
+//     }, 100);
+//   }
+// });
+
+
+//pdfスライダーpdfjs版
+document.addEventListener('DOMContentLoaded', () => {
+    // PDFファイルのURL
+    const url = 'static/_ClaN_Entertainment_会社紹介資料_20250507.pptx__2_.pdf'; 
+
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    const prevBtn = document.querySelector('.nav-button.prev');
+    const nextBtn = document.querySelector('.nav-button.next');
+    
+    let pdfDoc = null;
+    let pages = []; // 各ページの情報を格納
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    // PDFファイルを読み込む
+    pdfjsLib.getDocument(url).promise.then(async (pdf) => {
+        pdfDoc = pdf;
+        const totalPages = pdf.numPages;
+
+        for (let i = 1; i <= totalPages; i++) {
+            const page = await pdf.getPage(i);
+            const scale = 1.5;
+            const viewport = page.getViewport({ scale });
+            
+            // canvas要素を生成
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+                canvasContext: context,
+                viewport: viewport
+            };
+            
+            // ページをcanvasにレンダリング
+            await page.render(renderContext).promise;
+
+            // image-wrapperにcanvasを追加
+            const imageWrapper = document.createElement('div');
+            imageWrapper.classList.add('image-wrapper');
+            imageWrapper.appendChild(canvas);
+            carouselWrapper.appendChild(imageWrapper);
+            
+            // ページ情報を配列に格納
+            pages.push(imageWrapper);
+        }
+
+        // 初期表示
+        updateCarousel();
+
+        // Prevボタンクリック
+        prevBtn.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : pages.length - 1;
+            updateCarousel();
+        });
+
+        // Nextボタンクリック
+        nextBtn.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
+            currentIndex = (currentIndex < pages.length - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        });
+    });
+
+    // カルーセルを更新する関数
+    function updateCarousel() {
+        pages.forEach((page, index) => {
+            if (index === currentIndex) {
+                page.classList.add('active');
+            } else {
+                page.classList.remove('active');
+            }
+        });
+
+        setTimeout(() => {
+            const container = document.querySelector('.carousel-container');
+            const activePage = pages[currentIndex];
+            const containerWidth = container.offsetWidth;
+            const activePageWidth = activePage.offsetWidth;
+            const inactivePageWidth = pages[0].offsetWidth;
+            
+            const imageMargin = parseFloat(getComputedStyle(pages[0]).marginRight);
+
+            let totalShift = 0;
+            for (let i = 0; i < currentIndex; i++) {
+                totalShift += (inactivePageWidth + imageMargin);
+            }
+
+            totalShift += (activePageWidth - inactivePageWidth) / 2;
+
+            const offset = (containerWidth / 2) - (totalShift + inactivePageWidth / 2);
+
+            carouselWrapper.style.transform = `translate(${offset}px, -50%)`;
+            isAnimating = false;
+
+        }, 500);
+    }
+});
+</script>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const contentItems = document.querySelectorAll('.content-item');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', filterContent);
+    });
+
+    function filterContent() {
+        // 現在チェックされているタグを取得する
+        const checkedTags = Array.from(checkboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
+
+        // 全てのコンテンツをループ処理
+        contentItems.forEach(item => {
+            const itemTags = item.dataset.tags.split(' ');
+            
+            // フィルタリングロジック
+            // チェックされたタグが1つもない場合、全てのコンテンツを表示
+            if (checkedTags.length === 0) {
+                item.classList.remove('hidden');
+                return;
+            }
+
+            // コンテンツのタグが、チェックされたタグのいずれかに含まれているかを確認
+            const hasTag = checkedTags.some(tag => itemTags.includes(tag));
+            
+            // 条件に応じて表示・非表示を切り替える
+            if (hasTag) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    }
+});
+</script>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const scrollContent = document.querySelector('.RECnewsscroll-content');
+  const prevButton = document.querySelector('.RECnewsprev-button');
+  const nextButton = document.querySelector('.RECnewsnext-button');
+
+  prevButton.addEventListener('click', () => {
+    // スクロール量：コンテンツ幅の約80%
+    scrollContent.scrollBy({
+      left: -scrollContent.clientWidth * 0.8,
+      behavior: 'smooth'
+    });
+  });
+
+  nextButton.addEventListener('click', () => {
+    // スクロール量：コンテンツ幅の約80%
+    scrollContent.scrollBy({
+      left: scrollContent.clientWidth * 0.8,
+      behavior: 'smooth'
+    });
+  });
 });
 
-function buttonSwitch() {
-  filterButtons.forEach((filterButton) => {
-    filterButton.classList.remove("is-active");
-    this.classList.add('is-active');
-  });
-}
+</script>
 
-function categoryFilter() {
-  const buttonCategory = this.dataset.filter;
-  const targetContents = document.querySelectorAll('[data-category="' + buttonCategory + '"]');
 
-  categoryContents.forEach((categoryContent) => {
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // すべての質問項目を取得
+    const faqQuestions = document.querySelectorAll('.faq-question');
 
-    categoryContent.animate([{
-        opacity: 0
-      },
-      {
-        opacity: 1
-      }
-    ], {
-      duration: 600,
-      fill: 'forwards'
+    // それぞれの質問項目にクリックイベントを設定
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            // 親要素の.faq-itemを取得
+            const faqItem = question.closest('.faq-item');
+            
+            // .faq-itemにactiveクラスを付け外しする
+            faqItem.classList.toggle('active');
+        });
     });
-
-    if (buttonCategory == 'all') {
-      categoryContent.classList.add('is-show');
-    } else {
-      categoryContent.classList.remove("is-show");
-      targetContents.forEach((targetContent) => {
-        targetContent.classList.add('is-show');
-      });
-    }
-  });
-}
+});
 </script>
 </body>
 </html>
