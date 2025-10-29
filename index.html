@@ -36,7 +36,7 @@
                         <div class="RECheroAreaLeftCCJP AddOpenAnimation">人生を変える、エンターテイメントを</div>
                     </div>
                     <div class="RECbuttonBoxSP">
-                        <button class="RECbutton">Entry</button>
+                        <button class="RECbuttonC-dark">Entry</button>
                     </div>
                 </div>
                 <div class="RECheroAreaRight">
@@ -53,7 +53,7 @@
                         <a class="RECheroAreaNavItems AddOpenAnimation" href="#RECMOVEfaq">FAQ</a>
                     </div>
                     <div class="RECbuttonBox">
-                        <button class="RECbutton">Entry</button>
+                        <button class="RECbuttonC-dark">Entry</button>
                     </div>
                 </div>
             </div>
@@ -61,15 +61,15 @@
     </section>
 
     <section class="RECaboutUsSection" id="RECMOVEaboutus">
-        <div class="RECaboutUsSectionTitleBox">
+        <div class="RECaboutUsSectionTitleBox" id="titleHeight">
             <div class="RECaboutUsBlockTitle">
                 <div class="RECaboutUsBlockTitleLarge">About Us</div>
                 <div class="RECaboutUsBlockTitleSmall">ClaN Entertainmentを知る</div>
             </div>
         </div>
             
-        <div class="carousel-container">
-            <div class="carousel-wrapper">
+        <div class="carousel-container" id="pdfHeightTarget">
+            <div class="carousel-wrapper" id="pdfHeight">
                 <div class="image-wrapper"><img src="static/pdftojpg/_ClaN_Entertainment_会社紹介資料_20250507.pptx__2__page-0001.jpg" alt="画像1"></div>
                 <div class="image-wrapper"><img src="static/pdftojpg/_ClaN_Entertainment_会社紹介資料_20250507.pptx__2__page-0002.jpg" alt="画像1"></div>
                 <div class="image-wrapper"><img src="static/pdftojpg/_ClaN_Entertainment_会社紹介資料_20250507.pptx__2__page-0003.jpg" alt="画像1"></div>
@@ -100,7 +100,7 @@
                 <div class="image-wrapper"><img src="static/pdftojpg/_ClaN_Entertainment_会社紹介資料_20250507.pptx__2__page-0028.jpg" alt="画像1"></div>
                 <div class="image-wrapper"><img src="static/pdftojpg/_ClaN_Entertainment_会社紹介資料_20250507.pptx__2__page-0029.jpg" alt="画像1"></div>
             </div>
-            <div class="carousel-pagination">
+            <div class="carousel-pagination" id="nationHeight">
                 <span class="RECpdfpagination-dot active" data-index="0"></span>
                 <span class="RECpdfpagination-dot" data-index="1"></span>
                 <span class="RECpdfpagination-dot" data-index="2"></span>
@@ -720,7 +720,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<script>// PDF高さ
+function myResponsiveFunction() {
+    const pdfHeight = document.getElementById('pdfHeight').clientHeight;
+    const titleHeight = document.getElementById('titleHeight').clientHeight;
+    const nationHeight = document.getElementById('nationHeight').clientHeight;
+    const pdfHeightTarget = document.getElementById('pdfHeightTarget');
+    pdfHeightTarget.style.height = pdfHeight + nationHeight + 50 + 'px';
+}
+
+
+</script>
+
 <script>//gaiyou高さ調整
+function myResponsiveFunction2() {
     const gaiyouText = document.getElementById('RECgaiyouTextHeight');
     const gaiyouHeight = document.getElementById('RECgaiyouTextHeightControl');
     const gaiyouHeight2 = document.getElementById('RECgaiyouTextHeightControl2');
@@ -730,6 +743,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gaiyouHeight.style.height = gaiyouTextHeight + 'px';
         gaiyouHeight2.style.height = gaiyouTextHeight + 'px';
     }
+}
 </script>
 
 <script>// メンバー
@@ -1250,6 +1264,23 @@ document.addEventListener('DOMContentLoaded', () => {
             faqItem.classList.toggle('active');
         });
     });
+});
+</script>
+
+<script>// デバウンサー
+document.addEventListener('DOMContentLoaded', myResponsiveFunction);
+document.addEventListener('DOMContentLoaded', myResponsiveFunction2);
+
+let resizeTimer; // タイマーIDを保持するための変数
+window.addEventListener('resize', () => {
+    // 既存のタイマーをクリア (デバウンス処理)
+    clearTimeout(resizeTimer);
+
+    resizeTimer = setTimeout(() => {
+        myResponsiveFunction();
+        myResponsiveFunction2();
+        
+    }, 300); // 300ミリ秒後に実行
 });
 </script>
 
